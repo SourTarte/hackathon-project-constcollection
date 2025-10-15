@@ -3,15 +3,14 @@
 from django.views import generic
 # from django.contrib import messages
 # from django.http import HttpResponseRedirect
-from .models import Art
 # from .forms import ReviewForm
 
 # ------------------ Product Views ------------------ #
 
 
-class ArtList(generic.ListView):
-    """
-    Displays a list of all products.
-    """
-    queryset = Art.objects.all()
-    template_name = 'index.html'
+# class MediaList(generic.ListView):
+#     """
+#     Displays a list of all products.
+#     """
+#     queryset = Media.objects.all()
+#     template_name = 'index.html'

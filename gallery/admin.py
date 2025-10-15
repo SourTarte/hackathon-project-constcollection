@@ -1,6 +1,6 @@
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
-from .models import Art
+from .models import Media, Category
 
 # Register your models here.
-admin.site.register(Art)
+admin.site.register(Media)
+admin.site.register(Category)
