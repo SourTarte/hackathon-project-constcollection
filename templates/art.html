@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4">
+
+  <!-- Hero section -->
+  <section class="position-relative">
+    <!-- Pop out button -->
+    <button class="btn btn-outline-secondary btn-sm position-absolute top-50 end-0 translate-middle-y me-2"
+            type="button" data-bs-toggle="offcanvas" data-bs-target="#welcomeOffcanvas"
+            aria-controls="welcomeOffcanvas" title="Open panel">
+      <i class="fas fa-ellipsis-v"></i>
+    </button>
+
+    <!-- Hero image with title -->
+    <div class="rounded overflow-hidden shadow-sm">
+      <img class="w-100 hero-image" src="{% static 'images/hero.jpg' %}" alt="Hero image">
+      <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
+        <h1 class="display-6 fw-bold text-shadow">Section title</h1>
+        <p class="lead m-0 text-shadow">A short intro can live here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category divider -->
+  <div class="d-flex align-items-center my-4">
+    <hr class="flex-grow-1">
+    <span class="px-3 text-muted text-uppercase small">Featured Art</span>
+    <hr class="flex-grow-1">
+  </div>
+
+  <!-- Art pieces -->
+  <section class="row g-3">
+    <div class="col-12 col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img class="card-img-top" src="{% static 'images/art-1.jpg' %}" alt="Art piece 1">
+        <div class="card-body">
+          <h5 class="card-title">Art piece 1</h5>
+          <p class="card-text small text-muted">Brief description.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img class="card-img-top" src="{% static 'images/art-2.jpg' %}" alt="Art piece 2">
+        <div class="card-body">
+          <h5 class="card-title">Art piece 2</h5>
+          <p class="card-text small text-muted">Brief description.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img class="card-img-top" src="{% static 'images/art-3.jpg' %}" alt="Art piece 3">
+        <div class="card-body">
+          <h5 class="card-title">Art piece 3</h5>
+          <p class="card-text small text-muted">Brief description.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom divider -->
+  <div class="d-flex align-items-center my-4">
+    <hr class="flex-grow-1">
+    <span class="px-3 text-muted text-uppercase small">Browse Categories</span>
+    <hr class="flex-grow-1">
+  </div>
+</div>
+
+<!-- Offcanvas panel opened by the pop out button -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="welcomeOffcanvas" aria-labelledby="welcomeOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="welcomeOffcanvasLabel">Quick actions</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body small">
+    <ul class="list-unstyled mb-0">
+      <li><a class="link-dark" href="#">Newest</a></li>
+      <li><a class="link-dark" href="#">Popular</a></li>
+      <li><a class="link-dark" href="#">Categories</a></li>
+      <li><a class="link-dark" href="#">About</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock content %}
+
+{% block extras %}
+<style>
+  .hero-image { height: 300px; object-fit: cover; filter: saturate(1.05); }
+  .text-shadow { text-shadow: 0 2px 8px rgba(0,0,0,.5); }
+</style>
+{% endblock %}
