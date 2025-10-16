@@ -32,33 +32,17 @@
 
   <!-- Art pieces -->
   <section class="row g-3">
+    {% for category in categories %}
     <div class="col-12 col-md-4">
       <div class="card h-100 shadow-sm">
-        <img class="card-img-top" src="{% static 'images/art-1.jpg' %}" alt="Art piece 1">
+        <img class="card-img-top" src="{{ category.associated_media.image.url }}" alt="Art piece 1">
         <div class="card-body">
-          <h5 class="card-title">Art piece 1</h5>
-          <p class="card-text small text-muted">Brief description.</p>
+          <h5 class="card-title">{{ category.name | safe }}</h5>
+          {{ category.information | safe }}
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img class="card-img-top" src="{% static 'images/art-2.jpg' %}" alt="Art piece 2">
-        <div class="card-body">
-          <h5 class="card-title">Art piece 2</h5>
-          <p class="card-text small text-muted">Brief description.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img class="card-img-top" src="{% static 'images/art-3.jpg' %}" alt="Art piece 3">
-        <div class="card-body">
-          <h5 class="card-title">Art piece 3</h5>
-          <p class="card-text small text-muted">Brief description.</p>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
   </section>
 
   <!-- Bottom divider -->

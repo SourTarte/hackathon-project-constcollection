@@ -1,9 +1,7 @@
-# from django.shortcuts import render, get_object_or_404, redirect
-# from django.urls import reverse
 from django.views import generic
-# from django.contrib import messages
-# from django.http import HttpResponseRedirect
-# from .forms import ReviewForm
+from django.db.models import Prefetch
+from django.shortcuts import render
+from .models import Category
 
 # ------------------ Product Views ------------------ #
 
@@ -14,3 +12,16 @@ from django.views import generic
 #     """
 #     queryset = Media.objects.all()
 #     template_name = 'index.html'
+
+
+# class ArtList(generic.ListView):
+#     model = Media
+#     template_name = "gallery/art_list.html"
+#     context_object_name = "media_list"
+#     paginate_by = 12
+
+
+def art_view(request):
+    categories = Category.objects.all().order_by('list_position')
+    return render(request, 'gallery/art.html', {'categories': categories})
+
