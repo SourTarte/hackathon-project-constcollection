@@ -6,9 +6,8 @@
   </div>
   <div class="offcanvas-body">
     <nav class="nav flex-column small">
-      <a class="nav-link px-0" href="#overview" data-bs-dismiss="offcanvas">Overview</a>
-      <a class="nav-link px-0" href="#early-years" data-bs-dismiss="offcanvas">Early Years</a>
-      <a class="nav-link px-0" href="#collections" data-bs-dismiss="offcanvas">Collections</a>
+      <a class="nav-link px-0" href="{% url 'about' %}" data-bs-dismiss="offcanvas">About the Artist</a>
+      <a class="nav-link px-0" href="{% url 'exhibitions' %}" data-bs-dismiss="offcanvas">Exhibitions</a>
       <!-- New: link to the art page -->
       <a class="nav-link px-0" href="{% url 'art' %}">Art Gallery</a>
       <a class="nav-link px-0" href="{% url 'welcome' %}">Back to Home</a>
