@@ -5,8 +5,13 @@ body {
     background-color: #dee2e6 ;
 }
 
-#main-header {
-    background-color: #00E6E6;
-    border: 2px solid #009999;
+#main-header, #footer {
+    background-color: #5378d7;
+    border: 2px solid #2c4a99;
 }
 
+#nav-toggle {
+    /* higher than bootstrap z-index */
+    z-index: 1051;
+    background-color: #5378d7;
+}
