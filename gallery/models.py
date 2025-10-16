@@ -7,16 +7,6 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
-class Category(models.Model):
-    """Represents an art category, e.g. 'Dualistic Art', 'Perimenopausal
-        Art."""
-    name = models.CharField(max_length=200)
-    information = models.TextField(max_length=3000, blank=True, null=True)
-
-    def __str__(self):
-        return self.name
-
-
 class Media(models.Model):
     """ Represents a piece of media - either a video or art image"""
     title = models.CharField(max_length=200, default="new_art")
@@ -50,3 +40,19 @@ class Media(models.Model):
     def __str__(self):
         return self.title
 
+
+class Category(models.Model):
+    """Represents an art category, e.g. 'Dualistic Art', 'Perimenopausal
+        Art."""
+    name = models.CharField(max_length=200)
+    list_position = models.IntegerField(default=0)
+    information = models.TextField(max_length=3000, blank=True, null=True)
+    associated_media = models.ForeignKey(
+        Media,
+        on_delete=models.CASCADE,
+        default=4,
+        related_name="associated_media",
+        help_text="The Image/Video to pair with the section.")
+
+    def __str__(self):
+        return self.name
