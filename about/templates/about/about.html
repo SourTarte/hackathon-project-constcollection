@@ -6,50 +6,72 @@
   
   <!-- Page heading -->
   <div class="mb-4 text-center">
-    <h1 class="mb-1">Information</h1>
-    <p class="text-muted mb-0">Learn about the artist</p>
+    <h1 class="mb-3">Information</h1>
+    <p class="text-muted mb-5">Learn about the artist</p>
   </div>
 
- {% for section in about_list %}
-  {% if forloop.counter|divisibleby:2 %}
-    <!-- Even: images on right -->
-    <section id="overview" class="py-3">
-      <div class="row align-items-center g-4">
-        <div class="col-12 col-md-8 order-1 order-md-1">
-          <h2 class="h5">{{ section.section_name }}</h2>
-          <p class="mb-2">{{ section.section_information|safe }}</p>
-        </div>
-        <div class="col-12 col-md-4 order-2 order-md-2">
-          {% for media in section.media.all %}
-            {% if media.image %}
-              <img class="img-fluid rounded shadow-sm mb-3"
-                   src="{{ media.image.url }}" alt="{{ media.alt_text }}">
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-    <hr class="my-4">
-  {% else %}
-    <!-- Odd: images on left -->
-    <section id="early-years" class="py-3">
-      <div class="row align-items-center g-4">
-        <div class="col-12 col-md-4 order-1 order-md-1">
-          {% for media in section.media.all %}
-            {% if media.image %}
-              <img class="img-fluid rounded shadow-sm mb-3"
-                   src="{{ media.image.url }}" alt="{{ media.alt_text }}">
-            {% endif %}
-          {% endfor %}
-        </div>
-        <div class="col-12 col-md-8 order-2 order-md-2">
-          <h2 class="h5">{{ section.section_name }}</h2>
-          <p class="mb-2">{{ section.section_information|safe }}</p>
-        </div>
-      </div>
-    </section>
-    <hr class="my-4">
-  {% endif %}
-{% endfor %}
+  {% for section in about_list %}
+    {% with images=section.media.all %}
+      {% if forloop.counter|divisibleby:2 %}
+        <!-- Even: images on right -->
+        <section id="overview" class="py-3">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-md-8 order-1 order-md-1">
+              <h2 class="h4 mb-5">{{ section.section_name }}</h2>
+              <p class="mb-2">{{ section.section_information|safe }}</p>
+            </div>
+            <div class="col-12 col-md-4 order-2 order-md-2">
+              {% if images %}
+                <img class="img-fluid rounded shadow-sm mb-3"
+                     src="{{ images.0.image.url }}" alt="{{ images.0.alt_text }}">
+              {% endif %}
+            </div>
+          </div>
+          {% if images|length > 1 %}
+            <div class="row mt-3">
+              <div class="col-12 text-center">
+                {% for media in images|slice:"1:" %}
+                  {% if media.image %}
+                    <img class="img-fluid rounded shadow-sm mb-3 mx-2"
+                         src="{{ media.image.url }}" alt="{{ media.alt_text }}" style="max-width:200px;">
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        </section>
+        <hr class="my-4">
+      {% else %}
+        <!-- Odd: images on left -->
+        <section id="early-years" class="py-3">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-md-4 order-1 order-md-1">
+              {% if images %}
+                <img class="img-fluid rounded shadow-sm mb-3"
+                     src="{{ images.0.image.url }}" alt="{{ images.0.alt_text }}">
+              {% endif %}
+            </div>
+            <div class="col-12 col-md-8 order-2 order-md-2">
+              <h2 class="h4 mb-5">{{ section.section_name }}</h2>
+              <p class="mb-2">{{ section.section_information|safe }}</p>
+            </div>
+          </div>
+          {% if images|length > 1 %}
+            <div class="row mt-3">
+              <div class="col-12 text-center">
+                {% for media in images|slice:"1:" %}
+                  {% if media.image %}
+                    <img class="img-fluid rounded shadow-sm mb-3 mx-2"
+                         src="{{ media.image.url }}" alt="{{ media.alt_text }}" style="max-width:200px;">
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        </section>
+        <hr class="my-4">
+      {% endif %}
+    {% endwith %}
+  {% endfor %}
 
 {% endblock content %}
