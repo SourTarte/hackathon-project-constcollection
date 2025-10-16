@@ -1,0 +1,16 @@
+<!-- Offcanvas navigation -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="aboutMenu" aria-labelledby="aboutMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="aboutMenuLabel">Navigate</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav class="nav flex-column small">
+      <a class="nav-link px-0" href="{% url 'about' %}" data-bs-dismiss="offcanvas">About the Artist</a>
+      <a class="nav-link px-0" href="{% url 'exhibitions' %}" data-bs-dismiss="offcanvas">Exhibitions</a>
+      <!-- New: link to the art page -->
+      <a class="nav-link px-0" href="{% url 'art' %}">Art Gallery</a>
+      <a class="nav-link px-0" href="{% url 'welcome' %}">Back to Home</a>
+    </nav>
+  </div>
+</div>
