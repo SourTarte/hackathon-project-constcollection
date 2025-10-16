@@ -7,11 +7,11 @@
   <!-- Hero section -->
   <section class="position-relative">
     <!-- Pop out button -->
-    <button class="btn btn-outline-secondary btn-sm position-absolute top-50 end-0 translate-middle-y me-2"
-            type="button" data-bs-toggle="offcanvas" data-bs-target="#welcomeOffcanvas"
-            aria-controls="welcomeOffcanvas" title="Open panel">
-      <i class="fas fa-ellipsis-v"></i>
-    </button>
+  <button class="btn btn-outline-secondary position-fixed top-50 end-0 translate-middle-y me-2"
+          type="button" data-bs-toggle="offcanvas" data-bs-target="#aboutMenu"
+          aria-controls="aboutMenu" title="Open menu">
+    <i class="fas fa-bars"></i>
+  </button>
 
     <!-- Hero image with title -->
     <div class="rounded overflow-hidden shadow-sm">
@@ -70,18 +70,20 @@
 </div>
 
 <!-- Offcanvas panel opened by the pop out button -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="welcomeOffcanvas" aria-labelledby="welcomeOffcanvasLabel">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="aboutMenu" aria-labelledby="aboutMenuLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="welcomeOffcanvasLabel">Quick actions</h5>
+    <h5 class="offcanvas-title" id="aboutMenuLabel">Navigate</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body small">
-    <ul class="list-unstyled mb-0">
-      <li><a class="link-dark" href="#">Newest</a></li>
-      <li><a class="link-dark" href="#">Popular</a></li>
-      <li><a class="link-dark" href="#">Categories</a></li>
-      <li><a class="link-dark" href="#">About</a></li>
-    </ul>
+  <div class="offcanvas-body">
+    <nav class="nav flex-column small">
+      <a class="nav-link px-0" href="#overview" data-bs-dismiss="offcanvas">Overview</a>
+      <a class="nav-link px-0" href="#early-years" data-bs-dismiss="offcanvas">Early Years</a>
+      <a class="nav-link px-0" href="#collections" data-bs-dismiss="offcanvas">Collections</a>
+      <!-- New: link to the art page -->
+      <a class="nav-link px-0" href="{% url 'about' %}">About</a>
+      <a class="nav-link px-0" href="{% url 'welcome' %}">Back to Home</a>
+    </nav>
   </div>
 </div>
 {% endblock content %}
