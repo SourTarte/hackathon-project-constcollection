@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models import PROTECT
 from django.core.exceptions import ValidationError
 from cloudinary.models import CloudinaryField
 
