@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Media
+from .models import Media, Category
 
 # Register your models here.
 
@@ -12,9 +12,10 @@ class MediaAdmin(SummernoteModelAdmin):
     """
     list_display = (
         'title',
-        'category',
         'created_on'
     )
-    search_fields = ['title', 'subtitle', 'description',]
-    list_filter = ('category', 'created_on')
+    search_fields = ['title', 'subtitle',]
+    list_filter = ('created_on',)
     summernote_fields = ('description',)
+
+admin.site.register(Category)

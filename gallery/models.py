@@ -19,15 +19,10 @@ class Category(models.Model):
 
 class Media(models.Model):
     """ Represents a piece of media - either a video or art image"""
-    category = models.ForeignKey(
-        Category,
-        on_delete=PROTECT,
-        related_name='media'
-    )
     title = models.CharField(max_length=200, default="new_art")
-    description = models.CharField(
+    alt_text = models.CharField(
         max_length=200,
-        default="new_art_description"
+        default="alt_text"
     )
     image = CloudinaryField(blank=True, null=True, resource_type='image')
     video = models.URLField(
