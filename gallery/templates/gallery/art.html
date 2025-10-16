@@ -27,12 +27,13 @@
   <!-- Art pieces -->
   <section class="row g-3">
     {% for category in categories %}
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-6 col-lg-4">
       <div class="card h-100 shadow-sm">
-        <img class="card-img-top" src="{{ category.associated_media.image.url }}" alt="Art piece 1">
+        <img class="card-img-top" src="{{ category.associated_media.image.url }}" alt="{{ category.associated_media.alt_text }}">
+        <!-- <img class="card-img-top" src="{{ category.associated_media.image.url }}" alt="Art piece 1"> -->
         <div class="card-body">
           <h5 class="card-title">{{ category.name | safe }}</h5>
-          {{ category.information | safe }}
+          <!-- {{ category.information | safe }} -->
         </div>
       </div>
     </div>
@@ -53,5 +54,14 @@
 <style>
   .hero-image { height: 300px; object-fit: cover; filter: saturate(1.05); }
   .text-shadow { text-shadow: 0 2px 8px rgba(0,0,0,.5); }
+  .card-img-top {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;      /* Fills the area, cropping as needed */
+    background: #f8f9fa;    /* Optional: fallback background */
+  }
+  .card {
+    min-height: 500px;  /* Adjust as needed for your layout */
+  }
 </style>
 {% endblock %}
