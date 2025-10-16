@@ -1,10 +1,5 @@
-# from django.shortcuts import render, get_object_or_404, redirect
-# from django.urls import reverse
 from django.views import generic
 from django.db.models import Prefetch
-# from django.contrib import messages
-# from django.http import HttpResponseRedirect
-# from .forms import ReviewForm
 from .models import Media, Category
 
 # ------------------ Product Views ------------------ #
