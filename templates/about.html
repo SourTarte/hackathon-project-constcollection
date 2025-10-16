@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4">
+
+  <!-- Pop-out navigation button (fixed on the right) -->
+  <button class="btn btn-outline-secondary position-fixed top-50 end-0 translate-middle-y me-2"
+          type="button" data-bs-toggle="offcanvas" data-bs-target="#aboutMenu"
+          aria-controls="aboutMenu" title="Open menu">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Page heading -->
+  <header class="mb-4">
+    <h1 class="h3 mb-1">Biography</h1>
+    <p class="text-muted mb-0">Learn more about the artist and the collection.</p>
+  </header>
+
+  <!-- Section 1 -->
+  <section id="overview" class="py-3">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-md-4">
+        <img class="img-fluid rounded shadow-sm"
+             src="{% static 'images/about-1.jpg' %}" alt="Portrait or studio">
+      </div>
+      <div class="col-12 col-md-8">
+        <h2 class="h5">Overview</h2>
+        <p class="mb-2">
+          This collection explores form, light, and narrative through a contemporary lens.
+          Works span studies, finished pieces, and commissioned projects.
+        </p>
+        <p class="mb-0 text-muted">
+          Materials include ink, acrylic, and mixed media on various substrates.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="my-4">
+
+  <!-- Section 2 (image on the right) -->
+  <section id="early-years" class="py-3">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-md-8 order-2 order-md-1">
+        <h2 class="h5">Early Years</h2>
+        <p class="mb-2">
+          The artist began with observational sketches that evolved into larger narrative scenes.
+          Influences include classical composition and street photography.
+        </p>
+        <p class="mb-0 text-muted">
+          Exhibitions and workshops shaped the practice and technique.
+        </p>
+      </div>
+      <div class="col-12 col-md-4 order-1 order-md-2">
+        <img class="img-fluid rounded shadow-sm"
+             src="{% static 'images/about-2.jpg' %}" alt="Early work example">
+      </div>
+    </div>
+  </section>
+
+  <hr class="my-4">
+
+  <!-- Section 3 (image on the left again) -->
+  <section id="collections" class="py-3">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-md-4">
+        <img class="img-fluid rounded shadow-sm"
+             src="{% static 'images/about-3.jpg' %}" alt="Collection highlight">
+      </div>
+      <div class="col-12 col-md-8">
+        <h2 class="h5">Collections</h2>
+        <p class="mb-2">
+          Featured series include cityscapes, abstract studies, and portrait narratives.
+          Each series explores a distinct palette and rhythm.
+        </p>
+        <p class="mb-0 text-muted">
+          Limited editions and originals are cataloged and archived for provenance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Offcanvas navigation -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="aboutMenu" aria-labelledby="aboutMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="aboutMenuLabel">Navigate</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav class="nav flex-column small">
+      <a class="nav-link px-0" href="#overview" data-bs-dismiss="offcanvas">Overview</a>
+      <a class="nav-link px-0" href="#early-years" data-bs-dismiss="offcanvas">Early Years</a>
+      <a class="nav-link px-0" href="#collections" data-bs-dismiss="offcanvas">Collections</a>
+      <!-- New: link to the art page -->
+      <a class="nav-link px-0" href="{% url 'art' %}">Art Gallery</a>
+      <a class="nav-link px-0" href="{% url 'welcome' %}">Back to Home</a>
+    </nav>
+  </div>
+</div>
+{% endblock content %}
