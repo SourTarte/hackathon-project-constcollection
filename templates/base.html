@@ -1,6 +1,6 @@
 {% load static %}
 
-{% url 'art_list' as art_list_url %}
+{% url 'art' as art_list_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -10,7 +10,7 @@
 <html class="h-100" lang="en">
 
 <head>
-    <title>CodeStar Blog</title>
+    <title>ConstCollection</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google Fonts CSS -->
@@ -31,31 +31,17 @@
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'welcome' %}"><span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == welcome_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'welcome' %}">Home</a>
-                    </li>
-                </ul>
-                <span class="navbar-text text-muted">
-                    adventures of a software developer
-                </span>
-            </div>
+    <header id="main-header" class="py-2 mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="{% url 'art' %}" class="text-white text-decoration-none fs-4">ConstCollection</a>
+            <a href="{% url 'art' %}">
+                <img src="{% static 'images/copyright-const-collection.webp' %}" alt="Const Collection Logo"
+                    class="img-fluid" style="height:40px;">
+            </a>
         </div>
-    </nav>
-
+    </header>
     <!-- displaying Django messages -->
+    {% if messages %}
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -69,6 +55,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
 
     <main class="flex-shrink-0 main-bg">
         {% if user.is_authenticated %}
@@ -81,16 +68,16 @@
         <!-- Content Goes here -->
         {% endblock content %}
         {% if not request.resolver_match.url_name == "welcome" %}
-            {% include "shared/navigation.html" %}
+        {% include "shared/navigation.html" %}
         {% endif %}
     </main>
 
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
+    <footer id="footer" class="footer mt-auto py-3 dark-bg">
         <p class="m-0 text-center text-white">
             {% block copyright %}
-            Made by Code Instituters
+            ConstCollection
             {% endblock copyright %}
         </p>
         <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
