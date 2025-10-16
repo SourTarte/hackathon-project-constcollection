@@ -21,15 +21,6 @@ from .models import Media, Category
 
 
 class ArtList(generic.TemplateView):
+    queryset = Category.objects.all()
     template_name = "gallery/art_list.html"
-
-    def get_context_data(self, **kwargs):
-        ctx = super().get_context_data(**kwargs)
-        # Prefetch media for each category, ordered by created_on
-        media_qs = Media.objects.order_by('created_on').select_related('category')
-        categories = Category.objects.prefetch_related(
-            Prefetch('media', queryset=media_qs, to_attr='ordered_media')
-        ).order_by('name')
-        ctx['categories'] = categories
-        return ctx
 
