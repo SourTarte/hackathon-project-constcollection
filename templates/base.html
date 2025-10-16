@@ -4,6 +4,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'welcome' as welcome_url %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -34,7 +35,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'art_list' %}"><span class="brand">c<span class="red-o">o</span>de<span
+            <a class="navbar-brand" href="{% url 'welcome' %}"><span class="brand">c<span class="red-o">o</span>de<span
                         class="thin">|star</span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,8 +44,8 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == art_list_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'art_list' %}">Home</a>
+                        <a class="nav-link {% if request.path == welcome_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'welcome' %}">Home</a>
                     </li>
                 </ul>
                 <span class="navbar-text text-muted">
