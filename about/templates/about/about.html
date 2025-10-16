@@ -3,20 +3,12 @@
 
 {% block content %}
 <div class="container py-4">
-
-  <!-- Pop-out navigation button (fixed on the right) -->
-  <button class="btn btn-outline-secondary position-fixed top-50 end-0 translate-middle-y me-2"
-          type="button" data-bs-toggle="offcanvas" data-bs-target="#aboutMenu"
-          aria-controls="aboutMenu" title="Open menu">
-    <i class="fas fa-bars"></i>
-  </button>
-
   
   <!-- Page heading -->
-  <header class="mb-4 text-center">
+  <div class="mb-4 text-center">
     <h1 class="h3 mb-1">Information</h1>
     <p class="text-muted mb-0">Learn about the artist</p>
-  </header>
+  </div>
 
  {% for section in about_list %}
   {% if forloop.counter|divisibleby:2 %}
