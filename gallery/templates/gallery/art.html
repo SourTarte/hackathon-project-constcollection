@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4">
+
+  <!-- Hero section -->
+  <section class="position-relative">
+    <!-- Pop out button -->
+  <button class="btn btn-outline-secondary position-fixed top-50 end-0 translate-middle-y me-2"
+          type="button" data-bs-toggle="offcanvas" data-bs-target="#aboutMenu"
+          aria-controls="aboutMenu" title="Open menu">
+    <i class="fas fa-bars"></i>
+  </button>
+
+    <!-- Hero image with title -->
+    <div class="rounded overflow-hidden shadow-sm">
+      <img class="w-100 hero-image" src="{% static 'images/hero.jpg' %}" alt="Hero image">
+      <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
+        <h1 class="display-6 fw-bold text-shadow">Section title</h1>
+        <p class="lead m-0 text-shadow">A short intro can live here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category divider -->
+  <div class="d-flex align-items-center my-4">
+    <hr class="flex-grow-1">
+    <span class="px-3 text-muted text-uppercase small">Featured Art</span>
+    <hr class="flex-grow-1">
+  </div>
+
+  <!-- Art pieces -->
+  <section class="row g-3">
+    {% for category in categories %}
+    <div class="col-12 col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img class="card-img-top" src="{{ category.associated_media.image.url }}" alt="Art piece 1">
+        <div class="card-body">
+          <h5 class="card-title">{{ category.name | safe }}</h5>
+          {{ category.information | safe }}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <!-- Bottom divider -->
+  <div class="d-flex align-items-center my-4">
+    <hr class="flex-grow-1">
+    <span class="px-3 text-muted text-uppercase small">Browse Categories</span>
+    <hr class="flex-grow-1">
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block extras %}
+<style>
+  .hero-image { height: 300px; object-fit: cover; filter: saturate(1.05); }
+  .text-shadow { text-shadow: 0 2px 8px rgba(0,0,0,.5); }
+</style>
+{% endblock %}

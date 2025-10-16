@@ -3,7 +3,7 @@
 
 {% block content %}
 <!-- Hero Section with Welcome Message -->
-<section class="py-4 py-xl-5">
+<!-- <section class="py-4 py-xl-5">
     <div class="container h-100">
         <div class="text-white bg-primary border rounded border-0 p-4 py-5">
             <div class="row h-100">
@@ -17,7 +17,120 @@
             </div>
         </div>
     </div>
+</section> -->
+
+  <!-- Hero section -->
+  <section class="position-relative">
+    <!-- Pop out button -->
+    <button class="btn btn-outline-secondary btn-sm position-absolute top-50 end-0 translate-middle-y me-2"
+            type="button" data-bs-toggle="offcanvas" data-bs-target="#welcomeOffcanvas"
+            aria-controls="welcomeOffcanvas" title="Open panel">
+      <i class="fas fa-ellipsis-v"></i>
+    </button>
+
+
+    <!-- Hero image with title -->
+    <div class="rounded overflow-hidden shadow-sm">
+      <img class="w-100 hero-image" src="{% static 'images/hero.jpg' %}" alt="Hero image">
+      <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
+        <h1 class="display-6 fw-bold text-shadow">Section title</h1>
+        <p class="lead m-0 text-shadow">A short intro can live here.</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- Category divider -->
+  <div class="d-flex align-items-center my-4">
+    <hr class="flex-grow-1">
+    <span class="px-3 text-muted text-uppercase small">Featured Art</span>
+    <hr class="flex-grow-1">
+  </div>
+
+  <!-- Art pieces -->
+  <section class="row g-3">
+    <div class="col-12 col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img class="card-img-top" src="{% static 'images/art-1.jpg' %}" alt="Art piece 1">
+        <div class="card-body">
+          <h5 class="card-title">Art piece 1</h5>
+          <p class="card-text small text-muted">Brief description.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img class="card-img-top" src="{% static 'images/art-2.jpg' %}" alt="Art piece 2">
+        <div class="card-body">
+          <h5 class="card-title">Art piece 2</h5>
+          <p class="card-text small text-muted">Brief description.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img class="card-img-top" src="{% static 'images/art-3.jpg' %}" alt="Art piece 3">
+        <div class="card-body">
+          <h5 class="card-title">Art piece 3</h5>
+          <p class="card-text small text-muted">Brief description.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+    <!-- Bottom divider -->
+  <div class="d-flex align-items-center my-4">
+    <hr class="flex-grow-1">
+    <span class="px-3 text-muted text-uppercase small">Browse Categories</span>
+    <hr class="flex-grow-1">
+  </div>
+</div>
+
+
+<!-- Old -->
+
+<section class="py-4 py-xl-5">
+    <div class="container h-100">
+        <div class="text-white bg-primary border rounded border-0 p-4 py-5">
+            <div class="row h-100">
+                {% for category in categories %}
+                    <div class="col-12 mb-4">
+                        <h2 class="text-uppercase fw-bold text-white mb-3">{{ category.name }}</h2>
+                        {% if category.information %}
+                            <p class="text-white-50">{{ category.information }}</p>
+                        {% endif %}
+                        <div class="row">
+                            {% for media in category.ordered_media %}
+                                <div class="col-sm-6 col-md-4 mb-3">
+                                    <div class="card">
+                                        {% if media.image %}
+                                            <img src="{{ media.image.url }}" class="card-img-top" alt="{{ media.title }}">
+                                        {% elif media.video %}
+                                            <div class="ratio ratio-16x9">
+                                                <iframe src="{{ media.video }}" title="{{ media.title }}" allowfullscreen></iframe>
+                                            </div>
+                                        {% endif %}
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ media.title }}</h5>
+                                            <p class="card-text">{{ media.description }}</p>
+                                            <small class="text-muted">{{ media.created_on }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% empty %}
+                                <div class="col-12"><p class="text-white-50">No media in this category.</p></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="col-12"><p class="text-white-50">No categories available.</p></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </section>
+
 {% endblock content %}
 
 {% block extras %}
