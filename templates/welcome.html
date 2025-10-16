@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid p-0">
+  <!-- Hero -->
+  <section class="position-relative text-center text-white"
+           style="min-height:60vh; background: #111 url('{% static 'images/hero.jpg' %}') center/cover no-repeat;">
+    <!-- soft overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(0,0,0,.45);"></div>
+
+    <!-- Centered card with welcome text -->
+    <div class="position-absolute top-50 start-50 translate-middle w-100 px-3">
+      <div class="mx-auto" style="max-width:700px;">
+        <div class="bg-white bg-opacity-75 rounded-3 shadow p-4">
+          <h1 class="h3 mb-2 text-dark">Welcome to The Gallery of ConstCollection</h1>
+          <p class="mb-4 text-muted">Discover curated art pieces and explore by category.</p>
+          <a class="btn btn-primary btn-lg" href="{% url 'art' %}">Enter the Gallery</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock content %}
