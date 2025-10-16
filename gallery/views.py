@@ -1,6 +1,7 @@
 from django.views import generic
 from django.db.models import Prefetch
-from .models import Media, Category
+from django.shortcuts import render
+from .models import Category
 
 # ------------------ Product Views ------------------ #
 
@@ -20,7 +21,7 @@ from .models import Media, Category
 #     paginate_by = 12
 
 
-class ArtList(generic.TemplateView):
-    queryset = Category.objects.all()
-    template_name = "gallery/art_list.html"
+def art_view(request):
+    categories = Category.objects.all().order_by('list_position')
+    return render(request, 'gallery/art.html', {'categories': categories})
 
