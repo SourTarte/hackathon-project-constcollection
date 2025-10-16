@@ -25,5 +25,6 @@ urlpatterns = [
     path('accounts/', include("allauth.urls")),
     path('', TemplateView.as_view(template_name='welcome.html'), name='welcome'),
     path('art/', TemplateView.as_view(template_name='art.html'), name='art'),
+    path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
 ]
 
