@@ -57,6 +57,8 @@ Development follows the principle of Agile development. The project KanBan board
 ## Wireframes ##
 
 
+
+
 ## Colour ##
 
 
@@ -76,6 +78,39 @@ Development follows the principle of Agile development. The project KanBan board
 
 # Technologies Used #
 
+## Languages
+- **Python 3** – Main backend language (Django framework)
+- **HTML5** – Markup for templates
+- **CSS3** – Styling, including Bootstrap classes
+- **JavaScript** – For interactive elements (if used)
+
+## Frameworks & Libraries
+- **Django** – Main web framework for backend and templating
+- **Bootstrap 5** – Responsive front-end framework for layout and components
+- **Cloudinary** – Image hosting and management for media files
+- **Gunicorn** – WSGI HTTP server for deploying Django on Heroku
+- **psycopg2** – PostgreSQL database adapter for Django
+- **dj-database-url** – For parsing database URLs from environment variables
+- **whitenoise** – For serving static files in production
+
+## Database
+- **PostgreSQL** – Production database (hosted on Neon.tech)
+
+## Deployment & Hosting
+- **Heroku** – Cloud platform for deployment
+- **GitHub** – Version control and project management
+
+## Tools & Services
+- **Git** – Version control
+- **GitHub Projects** – Kanban board for Agile workflow
+- **VS Code** – Main code editor
+- **Cloudinary** – Media storage and delivery
+- **Django Admin** – For backend content management
+
+## Other
+- **pip** – Python package manager
+- **venv** – Virtual environment for dependency management
+
 # Deployment #
 
 # Testing #
@@ -90,7 +125,17 @@ Development follows the principle of Agile development. The project KanBan board
 
 # Use of AI #
 
+AI in the form of Copilot and GitHub Copilot has been used throughout the development of this project. Uses have primarily been:
+
+- Generation and refinement of User Stories for the project KanBan
+- Searching for answers in documentation
+- Code generation, including code using Bootstrap and Django Template Language
+- Accellerated debugging of code
+
+
 # References and Credits #
 
 
 This project is derived in large part from the "I Think Therefore I Blog" project that is a key part of Code Institutes full-stack web development course.
+
+Copilot
