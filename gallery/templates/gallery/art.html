@@ -87,7 +87,7 @@
         {% if user.is_authenticated %}
         <div class="d-flex flex-column align-items-center my-3">
           <h2 class="mb-2">Curator mode: show by section</h2>
-          <span class="mb-2">{{ category.name }}</span>
+          <span class="mb-2">Category name: {{ category.name }}</span>
           <a class="btn btn-danger" data-category_id="{{ category.id }}">Delete Category</a>
         </div>
         <!-- <div class="row"> -->
