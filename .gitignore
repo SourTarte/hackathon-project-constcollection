@@ -1,1 +1,10 @@
+.vscode/
 env.py
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+settings.json
+db.sqlite3
+z-TODO.py
