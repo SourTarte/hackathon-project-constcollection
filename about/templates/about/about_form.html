@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container py-4">
+  <div class="card mx-auto" style="max-width:720px;">
+    <div class="card-body">
+      <h1 class="card-title mb-3">Add About Section</h1>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.section_name|as_crispy_field }}
+        {{ form.section_information|as_crispy_field }}
+        {{ form.media|as_crispy_field }}
+        <div class="d-flex gap-2 mt-3">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <a href="{% url 'about' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
