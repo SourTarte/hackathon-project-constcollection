@@ -1,0 +1,1 @@
+This folder is for assets used in the project README.mf fields
