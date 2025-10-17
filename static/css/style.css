@@ -20,16 +20,10 @@ body {
 /* Pop Art Navbar */
 .navbar, .navbar-custom {
     background-color: #0044CC; /* Updated to a darker blue for better contrast */
-    color: #FFFFFF;
+    
 }
 
 footer {
     background-color: #0044CC; /* Updated to a darker blue for better contrast */
-    color: #FFFFFF;
-}
-
-/* Global Styles */
-
-body {
-    background-color: #dee2e6 ;
+    
 }

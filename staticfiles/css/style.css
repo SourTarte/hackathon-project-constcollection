@@ -2,6 +2,7 @@
 
 body {
     background-color: #dee2e6 ;
+<<<<<<< HEAD
 }
 
 /*
@@ -19,10 +20,13 @@ body {
 /* Updated Navbar and Footer Styles for Better Contrast */
 .navbar, .navbar-custom {
     background-color: #0044CC; /* Updated to a darker blue for better contrast */
-    color: #FFFFFF;
+    
 }
 
 footer {
     background-color: #0044CC; /* Updated to a darker blue for better contrast */
     color: #FFFFFF;
+=======
+>>>>>>> origin
 }
+
