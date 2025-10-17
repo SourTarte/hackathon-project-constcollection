@@ -24,6 +24,27 @@
     <hr class="flex-grow-1">
   </div>
 
+    <!-- Delete confirmation modal for category -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete category?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this category? 
+          <br>This will not delete the media, but will delete any text content associated with it. 
+          <br>This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Art pieces -->
   <!-- <section class="row g-3">
     {% for category in categories %}
@@ -42,6 +63,7 @@
   {% for category in categories %}
     <div class="col-12">
       <h3 class="mt-4 mb-3">{{ category.name }}</h3>
+      <a class="btn btn-delete" data-category_id="{{ category.id }}">Delete</a>
       <div class="row">
         {% for media in category.media.all %}
           <div class="col-md-6 col-lg-4 mb-4">
@@ -60,8 +82,28 @@
               </div>
             </div>
           </div>
+        
         {% empty %}
+
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'images/placeholder.webp' %}" class="scale product-page-image" alt="placeholder">
+                <div class="ratio ratio-16x9">
+                  <iframe src="{{ media.video }}" title="{{ media.title }}" allowfullscreen></iframe>
+                </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ media.title }}</h5>
+                <!-- <p class="card-text">{{ media.alt_text }}</p> -->
+                <!-- <small class="text-muted">{{ media.created_on }}</small> -->
+              </div>
+            </div>
+          </div>
+
+          <!--      THIS WILL BE THE FINAL SECTION -->
+          <!--
           <div class="col-12"><em>No media in this category.</em></div>
+          <a class="ms-3 text-white" href="#">Delete</a>
+          -->
         {% endfor %}
       </div>
     </div>
@@ -79,6 +121,7 @@
 {% endblock content %}
 
 {% block extras %}
+<script src="{% static 'js/admin_commands.js' %}"></script>
 <style>
   .hero-image { height: 300px; object-fit: cover; filter: saturate(1.05); }
   .text-shadow { text-shadow: 0 2px 8px rgba(0,0,0,.5); }

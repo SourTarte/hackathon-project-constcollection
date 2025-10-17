@@ -21,6 +21,7 @@ from gallery import views as gallery_views
 urlpatterns = [
     path('', gallery_views.welcome_view, name='welcome'),
     path('gallery/', gallery_views.art_view, name='art'),
+    path('delete_category/<int:category_id>', gallery_views.category_delete, name='category_delete'),
     path('adminpanel/', gallery_views.admin_view, name='admin_panel'),
     path('about/', include("about.urls")),
     path('admin/', admin.site.urls),

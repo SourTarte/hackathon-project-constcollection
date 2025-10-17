@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from .models import Category, Media
 from .forms import CategoryForm, MediaForm
 
@@ -32,6 +34,17 @@ def art_view(request):
     # Prefetch all media for each category, ordered by created_on
     categories = Category.objects.all().order_by('list_position').prefetch_related('media')
     return render(request, 'gallery/art.html', {'categories': categories})
+
+def category_delete(request, category_id):
+    print(request.META.get('HTTP_REFERER'))
+    category = get_object_or_404(Category, id=category_id)
+    category.delete()
+    print(f"Button clicked for {category_id}")
+
+    categories = Category.objects.all().order_by('list_position').prefetch_related('media')
+    #return render(request, 'gallery/art.html', {'categories': categories})
+    #return HttpResponseRedirect(redirect('art', args=[categories]))
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
 def admin_view(request):
