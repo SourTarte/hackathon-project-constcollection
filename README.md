@@ -4,7 +4,7 @@ A Django Hackathon project.
 
 [Link to deployed site](https://hackathon-constcollection-e94b800f4c67.herokuapp.com/)
 
-[Link to the project GitHub](!https://github.com/SourTarte/hackathon-project-constcollection)
+[Link to the project GitHub](https://github.com/users/SourTarte/projects/7/views/1)
 
 [Link to project KanBan](https://github.com/users/SourTarte/projects/7)
 

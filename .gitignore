@@ -1,17 +1,1 @@
-core.Microsoft*
-core.mongo*
-core.python*
-*.py[cod]
-node_modules/
-.github/
-cloudinary_python.txt
-.vscode/
 env.py
-.env
-.venv/
-venv/ __
-pycache__/
-settings.json
-db.sqlite3
-ignored/
-ignored/assets/
