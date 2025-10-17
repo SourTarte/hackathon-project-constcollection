@@ -11,7 +11,8 @@ class Media(models.Model):
     title = models.CharField(max_length=200, default="new_art")
     alt_text = models.CharField(
         max_length=200,
-        default="alt_text"
+        default="alt_text",
+        help_text="Text to be read by screen readers",
     )
     image = CloudinaryField(blank=True, null=True, resource_type='image')
     video = models.URLField(
