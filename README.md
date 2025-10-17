@@ -4,7 +4,7 @@ A Django Hackathon project.
 
 [Link to deployed site](https://hackathon-constcollection-e94b800f4c67.herokuapp.com/)
 
-[Link to the project GitHub](!https://github.com/SourTarte/hackathon-project-constcollection)
+[Link to the project GitHub](https://github.com/users/SourTarte/projects/7/views/1)
 
 [Link to project KanBan](https://github.com/users/SourTarte/projects/7)
 
@@ -136,6 +136,6 @@ AI in the form of Copilot and GitHub Copilot has been used throughout the develo
 # References and Credits #
 
 
-This project is derived in large part from the "I Think Therefore I Blog" project that is a key part of Code Institutes full-stack web development course.
+This project is inspired in large part from the "I Think Therefore I Blog" project that is a key part of Code Institutes full-stack web development course.
 
 Copilot
