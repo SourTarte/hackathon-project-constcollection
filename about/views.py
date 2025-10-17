@@ -1,5 +1,5 @@
 from django.views import generic
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import AboutSection
 from .forms import AboutSectionForm
 
@@ -40,3 +40,18 @@ def about_create(request):
         form = AboutSectionForm()
 
     return render(request, 'about/about_form.html', {'form': form})
+
+
+def about_edit(request, pk):
+    """Edit an existing AboutSection."""
+    section = get_object_or_404(AboutSection, pk=pk)
+
+    if request.method == 'POST':
+        form = AboutSectionForm(request.POST, instance=section)
+        if form.is_valid():
+            form.save()
+            return redirect('about')
+    else:
+        form = AboutSectionForm(instance=section)
+
+    return render(request, 'about/about_form.html', {'form': form, 'section': section})
