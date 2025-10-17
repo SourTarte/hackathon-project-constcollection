@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from gallery import views
+from gallery import views as gallery_views
 
 urlpatterns = [
-    path('', views.welcome_view, name='welcome'),
-    path('gallery/', views.art_view, name='art'),
+    path('', gallery_views.welcome_view, name='welcome'),
+    path('gallery/', gallery_views.art_view, name='art'),
+    path('adminpanel/', gallery_views.admin_view, name='admin_panel'),
     path('about/', include("about.urls")),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
