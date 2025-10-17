@@ -92,4 +92,5 @@ Development follows the principle of Agile development. The project KanBan board
 
 # References and Credits #
 
+
 This project is derived in large part from the "I Think Therefore I Blog" project that is a key part of Code Institutes full-stack web development course.
