@@ -22,6 +22,7 @@ urlpatterns = [
     path('', gallery_views.welcome_view, name='welcome'),
     path('gallery/', gallery_views.art_view, name='art'),
     path('delete_category/<int:category_id>', gallery_views.category_delete, name='category_delete'),
+    path('delete_media/<int:media_id>', gallery_views.media_delete, name='media_delete'),
     path('adminpanel/', gallery_views.admin_view, name='admin_panel'),
     path('about/', include("about.urls")),
     path('admin/', admin.site.urls),
