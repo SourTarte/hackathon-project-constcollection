@@ -1,5 +1,6 @@
 from django.views import generic
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import AboutSection
 from .forms import AboutSectionForm
 
@@ -28,6 +29,7 @@ class ExhibitionList(generic.ListView):
     context_object_name = 'exhibition_list'
 
 
+@login_required
 def about_create(request):
     """Function view to create a new AboutSection via front-end form."""
     if request.method == 'POST':
@@ -42,6 +44,7 @@ def about_create(request):
     return render(request, 'about/about_form.html', {'form': form})
 
 
+@login_required
 def about_edit(request, pk):
     """Edit an existing AboutSection."""
     section = get_object_or_404(AboutSection, pk=pk)
@@ -54,4 +57,22 @@ def about_edit(request, pk):
     else:
         form = AboutSectionForm(instance=section)
 
-    return render(request, 'about/about_form.html', {'form': form, 'section': section})
+    return render(
+        request,
+        'about/about_form.html',  # change to admin panel
+        {'form': form, 'section': section},
+    )
+
+
+@login_required
+def about_delete(request, pk):
+    """Confirm and delete an AboutSection."""
+    section = get_object_or_404(AboutSection, pk=pk)
+    if request.method == 'POST':
+        section.delete()
+        return redirect('about')
+    return render(
+        request,
+        'about/about_confirm_delete.html',  # modal and admin panel instead
+        {'section': section},
+    )
