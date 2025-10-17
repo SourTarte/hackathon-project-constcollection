@@ -22,13 +22,21 @@ class MediaAdmin(SummernoteModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(SummernoteModelAdmin):
     """
-    Lists fields for display in admin, fileds for search,
-    field filters, fields to prepopulate and rich-text editor.
+    Lists fields for display in admin and rich-text editor.
     """
     list_display = (
         'name',
         'list_position',
-        'associated_media',
+        'media_list',
     )
     search_fields = ['name',]
     summernote_fields = ('information',)
+
+    def media_list(self, obj):
+        # show up to 10 media titles and append " ..." if there are more
+        qs = obj.media.all()[:10]
+        titles = [m.title for m in qs]
+        more = "" if obj.media.count() <= 10 else " ..."
+        return ", ".join(titles) + more
+
+    media_list.short_description = "Associated media"

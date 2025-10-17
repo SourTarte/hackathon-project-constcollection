@@ -21,6 +21,16 @@ class Media(models.Model):
     )
     created_on = models.DateTimeField(auto_now_add=True)
 
+    # NEW: optional Category FK (nullable for migration)
+    category = models.ForeignKey(
+        'Category',
+        on_delete=models.SET_NULL,
+        related_name='media',
+        null=True,
+        blank=True,
+        help_text="Category this media belongs to"
+    )
+
     def clean(self):
         super().clean()
         if bool(self.image) == bool(self.video):
@@ -42,16 +52,10 @@ class Media(models.Model):
 
 class Category(models.Model):
     """Represents an art category, e.g. 'Dualistic Art', 'Perimenopausal
-        Art."""
+        Art.'"""
     name = models.CharField(max_length=200)
     list_position = models.IntegerField(default=0)
     information = models.TextField(max_length=3000, blank=True, null=True)
-    associated_media = models.ForeignKey(
-        Media,
-        on_delete=models.CASCADE,
-        default=4,
-        related_name="associated_media",
-        help_text="The Image/Video to pair with the section.")
 
     def __str__(self):
         return self.name
