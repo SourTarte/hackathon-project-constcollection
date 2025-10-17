@@ -34,7 +34,9 @@
     {% if not request.resolver_match.url_name == "welcome" %}
         {% include "shared/header.html" %}
         {% endif %}
+        
     <!-- displaying Django messages -->
+    <!--
     {% if messages %}
     <div class="container">
         <div class="row">
@@ -50,14 +52,17 @@
         </div>
     </div>
     {% endif %}
+    -->
+    
 
     <main class="flex-shrink-0 main-bg">
+        <!--
         {% if user.is_authenticated %}
         <p class="text-end m-3">You are logged in as {{ user }}</p>
         {% else %}
         <p class="text-end m-3">You are not logged in</p>
         {% endif %}
-
+        -->
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
