@@ -1,12 +1,30 @@
+
+/* Global Styles */
+
+body {
+    background-color: #dee2e6 ;
+}
+
+/*
+#main-header, #footer {
+    background-color: #5378d7;
+    border: 2px solid #2c4a99;
+}
+
+#nav-toggle {
+    z-index: 1051;
+    background-color: #5378d7;
+}
+*/
+
 /* Pop Art Navbar */
 .navbar, .navbar-custom {
-    background-color: #2979FF;
+    background-color: #0044CC; /* Updated to a darker blue for better contrast */
     color: #FFFFFF;
 }
 
-/* Pop Art Footer */
 footer {
-    background-color: #2979FF;
+    background-color: #0044CC; /* Updated to a darker blue for better contrast */
     color: #FFFFFF;
 }
 
