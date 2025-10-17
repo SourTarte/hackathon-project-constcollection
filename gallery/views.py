@@ -42,16 +42,27 @@ def admin_view(request):
     media_form = MediaForm()
     about_form = AboutSectionForm()
 
-    # If GET includes edit param, prefill the about form with that instance
+    # Prefill forms when GET includes edit params
     edit_pk = request.GET.get('edit')
     if edit_pk:
         section = get_object_or_404(AboutSection, pk=edit_pk)
         about_form = AboutSectionForm(instance=section)
 
+    edit_cat = request.GET.get('edit_category')
+    if edit_cat:
+        category = get_object_or_404(Category, pk=edit_cat)
+        category_form = CategoryForm(instance=category)
+
+    edit_media = request.GET.get('edit_media')
+    if edit_media:
+        media_instance = get_object_or_404(Media, pk=edit_media)
+        media_form = MediaForm(instance=media_instance)
+
     if request.method == "POST":
+        form_type = request.POST.get('form_type')
         category_form = CategoryForm(data=request.POST)
         media_form = MediaForm(data=request.POST, files=request.FILES)
-        form_type = request.POST.get('form_type')
+        about_form = AboutSectionForm(data=request.POST)
 
         if form_type == 'about':
             about_pk = request.POST.get('about_pk')
@@ -73,23 +84,53 @@ def admin_view(request):
             messages.success(request, "About section deleted.")
             about_form = AboutSectionForm()
 
-        elif request.POST.get('information') is not None:
+        elif form_type == 'category':
+            category_pk = request.POST.get('category_pk')
+            if category_pk:
+                category_inst = get_object_or_404(Category, pk=category_pk)
+                category_form = CategoryForm(request.POST, instance=category_inst)
+            else:
+                category_form = CategoryForm(request.POST)
+
             if category_form.is_valid():
                 category_form.save()
-                messages.success(request, "Category submitted!")
+                messages.success(request, "Category saved.")
                 category_form = CategoryForm()
-        elif 'image' in request.FILES or request.POST.get('video') is not None:
+
+        elif form_type == 'category_delete':
+            category_pk = request.POST.get('category_pk')
+            category = get_object_or_404(Category, pk=category_pk)
+            category.delete()
+            messages.success(request, "Category deleted.")
+            category_form = CategoryForm()
+
+        elif form_type == 'media':
+            media_pk = request.POST.get('media_pk')
+            if media_pk:
+                media_inst = get_object_or_404(Media, pk=media_pk)
+                media_form = MediaForm(request.POST, request.FILES, instance=media_inst)
+            else:
+                media_form = MediaForm(request.POST, request.FILES)
+
             if media_form.is_valid():
                 media_form.save()
-                messages.success(request, "Media submitted!")
+                messages.success(request, "Media saved.")
                 media_form = MediaForm()
-            else:
-                print("media form is invalid:", media_form.errors)
+
+        elif form_type == 'media_delete':
+            media_pk = request.POST.get('media_pk')
+            media = get_object_or_404(Media, pk=media_pk)
+            media.delete()
+            messages.success(request, "Media deleted.")
+            media_form = MediaForm()
+
         else:
             print("Unrecognized POST data")
 
-    # include existing about sections so template can show edit/delete controls
+    # include existing objects so template can show edit/delete controls
     about_list = AboutSection.objects.all().order_by('-created_on')
+    category_list = Category.objects.all().order_by('list_position', 'pk')
+    media_list = Media.objects.all().order_by('-created_on')
 
     return render(
         request, 'gallery/admin_panel.html',
@@ -97,9 +138,12 @@ def admin_view(request):
             "category_form": category_form,
             "media_form": media_form,
             "about_form": about_form,
-            "about_list": about_list
+            "about_list": about_list,
+            "category_list": category_list,
+            "media_list": media_list,
         }
     )
+
 
     # Handle category submission
 def add_category(request):
