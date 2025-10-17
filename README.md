@@ -138,4 +138,4 @@ AI in the form of Copilot and GitHub Copilot has been used throughout the develo
 
 This project is inspired in large part from the "I Think Therefore I Blog" project that is a key part of Code Institutes full-stack web development course.
 
-Copilot uses the collective knowledge of hundreds of millions, and has helped created code for this project.
+Copilot uses the collective knowledge of hundreds of millions, and has helped created code for this project. 
