@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required  # type: ignore
 from .models import Category, Media
 from .forms import CategoryForm, MediaForm
 from about.forms import AboutSectionForm
@@ -36,6 +37,7 @@ def media_delete(request, media_id):
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
+@login_required
 def admin_view(request):
     # instantiate other forms so template can always render them
     category_form = CategoryForm()
