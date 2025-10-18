@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required  # type: ignore
 from .models import Category, Media
 from .forms import CategoryForm, MediaForm
 from about.forms import AboutSectionForm
@@ -36,6 +37,7 @@ def media_delete(request, media_id):
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
+@login_required
 def admin_view(request):
     # instantiate other forms so template can always render them
     category_form = CategoryForm()
@@ -60,10 +62,33 @@ def admin_view(request):
 
     if request.method == "POST":
         form_type = request.POST.get('form_type')
-        category_form = CategoryForm(data=request.POST)
-        media_form = MediaForm(data=request.POST, files=request.FILES)
-        about_form = AboutSectionForm(data=request.POST)
 
+        # category_form = CategoryForm(data=request.POST)
+        # media_form = MediaForm(data=request.POST, files=request.FILES)
+        # about_form = AboutSectionForm(data=request.POST)
+
+        # Start (below): edit forms based only on which form was submitted
+        if form_type == 'about':
+            about_form = AboutSectionForm(data=request.POST)
+            category_form = CategoryForm()
+            media_form = MediaForm()
+        elif form_type == 'category':
+            category_form = CategoryForm(data=request.POST)
+            about_form = AboutSectionForm()
+            media_form = MediaForm()
+        elif form_type == 'media':
+            media_form = MediaForm(data=request.POST, files=request.FILES)
+            about_form = AboutSectionForm()
+            category_form = CategoryForm()
+        else:
+            # fallback: all unbound
+            about_form = AboutSectionForm()
+            category_form = CategoryForm()
+            media_form = MediaForm()
+
+        # End (above ^^ ): edit forms based only on which form was submitted
+
+        # Below: process each form based on 'form_type'
         if form_type == 'about':
             about_pk = request.POST.get('about_pk')
             if about_pk:
