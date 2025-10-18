@@ -1,29 +1,27 @@
-
 /* Global Styles */
 
 body {
-    background-color: #dee2e6 ;
+    background-color: #dee2e6;
 }
 
-/*
-#main-header, #footer {
-    background-color: #5378d7;
-    border: 2px solid #2c4a99;
+/* Header and Footer Styles */
+#main-header {
+    background-color: #0044CC; /* Updated to a darker blue for better contrast */
+    color: #ffffff; /* White text for better readability */
+    padding: 10px 20px; /* Add some padding */
+    font-family: Arial, sans-serif; /* Ensure a clean font */
+}
+
+footer {
+    background-color: #0044CC; /* Updated to a darker blue for better contrast */
+    color: #ffffff; /* White text for better readability */
+    padding: 10px 20px; /* Add some padding */
+    font-family: Arial, sans-serif; /* Ensure a clean font */
 }
 
 #nav-toggle {
     z-index: 1051;
     background-color: #5378d7;
 }
-*/
 
-/* Pop Art Navbar */
-.navbar, .navbar-custom {
-    background-color: #0044CC; /* Updated to a darker blue for better contrast */
-    
-}
 
-footer {
-    background-color: #0044CC; /* Updated to a darker blue for better contrast */
-    
-}
