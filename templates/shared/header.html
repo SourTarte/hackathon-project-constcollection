@@ -8,7 +8,9 @@
                    class="img-fluid" style="height:40px;">
            </a>
        </div>
+       {% if user.is_authenticated %}
        <div class="container">
             <a class=" text-white" href="{% url 'admin_panel' %}">Curator Panel</a>
        </div>
+       {% endif %}
    </header>
