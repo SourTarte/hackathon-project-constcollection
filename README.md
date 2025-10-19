@@ -189,6 +189,10 @@ All colour contrast meets WCAG AAA
 ## Code Validation ##
 
 ## Lighthouse testing ##
+## Desktop ##
+![lighthouse-desktop](documentation/lighthouse-desktop.png)
+## Mobile ##
+![lighthouse-mobile](documentation/lighthouse-mobile.png)
 
 # Bugs #
 
