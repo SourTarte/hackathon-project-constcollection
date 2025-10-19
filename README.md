@@ -82,9 +82,13 @@ Mobile:
 
 Admin panel to add, edit or delete Media, Art Categories, Exhibitions, or About sections.
 
+This has tabs for each form, and the forms are scrollable with buttons to edit or delete existing objects.
+
 There is no functionality to register a user so this is only avaliable to the artist/curator who is given a log in. 
 
-![Admin Panel](documentation/Admin-panel.png)
+![Admin Panel Add](documentation/Admin-panel1.png)
+
+![Admin Panel Edit/Delete](documentation/Admin-panel2.png)
 
 A navigation bar accessible through a toggle on the right, so as to not ditract from the art:
 
@@ -185,6 +189,10 @@ All colour contrast meets WCAG AAA
 ## Code Validation ##
 
 ## Lighthouse testing ##
+## Desktop ##
+![lighthouse-desktop](documentation/lighthouse-desktop.png)
+## Mobile ##
+![lighthouse-mobile](documentation/lighthouse-mobile.png)
 
 # Bugs #
 

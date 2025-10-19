@@ -3,27 +3,43 @@
 /* Global Styles */
 
 body {
-    background-color: #dee2e6;
+  background: linear-gradient(135deg, #ffffff 0%, #e8f2ff 50%, #fffaf0 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #000; 
+}
+
+h1, h2 {
+    font-family: Georgia, serif;
 }
 
 /* Header and Footer Styles */
 #main-header {
-    background-color: #0044CC; /* Updated to a darker blue for better contrast */
+    background-color: #2f4bbd; /* Updated to a darker blue for better contrast */
     color: #ffffff; /* White text for better readability */
     padding: 10px 20px; /* Add some padding */
     font-family: 'Chicle', cursive; /* Apply the new font */
 }
 
 footer {
-    background-color: #0044CC; /* Updated to a darker blue for better contrast */
+    background-color: #2f4bbd; /* Updated to a darker blue for better contrast */
     color: #ffffff; /* White text for better readability */
     padding: 10px 20px; /* Add some padding */
     font-family: 'Chicle', cursive; /* Apply the new font */
 }
 
+/* Navigation */
 #nav-toggle {
     z-index: 1051;
-    background-color: #5378d7;
+    background-color: #2f4bbd;
 }
 
+
+#nav-toggle .fas,
+#nav-toggle i.fas,
+#nav-toggle .fa-bars {
+    /* Bars within toggle to white */
+  color: #ffffff;
+}
 
