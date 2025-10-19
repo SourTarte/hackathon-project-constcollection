@@ -56,12 +56,15 @@ Development follows the principle of Agile development. The project KanBan board
 
 ## Wireframes ##
 
+Mobile:
 
+![Mobile Wireframes](documentation/artistwireframesmobile.webp.png)
+
+![Desktop Wireframes](documentation/artist_wireframes.webp)
 
 
 ## Colour ##
 
-All colours WCAG AAA 
 
 ## Fonts ##
 
@@ -132,7 +135,41 @@ Exhibitions:
 
 # Deployment #
 
+This project was deployed on Heroku, pulling from GitHub.
+
+#### To enable deployment:  
+
+Ensure all sensitive information, such as your SECRET_KEY and DATABASE_URL, are stored as environment variables and not visible in your project code. Set DEBUG in settings.py to 'False'.
+
+Install requirements.txt - the important installations for deployment are gunicorn for serving the application, and whitenoise for handling static files.  
+
+Add a Procfile at the root of your project, with the content: "web: gunicorn {project_name}.wsgi".  
+Add a .python-version file specifying your version of Python.
+
+Add '.herokuapp.com' to ALLOWED_HOSTS within your project's settings.py.  
+Add 'https://*.herokuapp.com' to CSRF_TRUSTED_ORIGINS within your project's settings.  
+
+Commit and push your code to GitHub, on the branch you want to deploy from.   
+
+#### To deploy:
+Navigate to your Heroku dashboard.  
+Create a new Heroku app.  
+Select the region closest to you for deployment. 
+
+Generate a secret key to be used with Heroku. This should be a different key to the one used in your project code.    
+Go to the settings tab and select Config Vars.  
+Add these two keys:  
+-- DATABASE_URL : {your_project's_database_url}  
+-- SECRET_KEY : {your_secret_key}  
+
+Navigate to the deploy tab.  
+Connect to GitHub and select your project repository.  
+Select 'Manual Deploy' and choose the branch you want to deploy from.  
+Click 'Deploy Branch'.    
+
 # Testing #
+
+All colour contrast meets WCAG AAA 
 
 ## Manual Testing against User Stories ##
 
