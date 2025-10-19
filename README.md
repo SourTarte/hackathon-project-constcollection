@@ -8,7 +8,7 @@ A Django Hackathon project.
 
 [Link to project KanBan](https://github.com/users/SourTarte/projects/7)
 
-Constcollection is a student Hackathon project who's premise is to create a response, accessible website for the artist Cecilia Kristoffersson.
+Constcollection is a student Hackathon project who's premise is to create a responsive, accessible website for the artist Cecilia Kristoffersson.
 
 
 <images>
@@ -195,6 +195,30 @@ All colour contrast meets WCAG AAA
 ![lighthouse-mobile](documentation/lighthouse-mobile.png)
 
 # Bugs #
+
+### Delete Category button on the gallery page (visible when in Curator Mode) does not work ###
+
+When in "Curator Mode" (when page is viewed by an authenticated user) a "Delete Category" button is visible.
+
+![Delete Category Button](documentation/delete-category-button.png)
+
+**Intended behaviour** is that clicking on the Delete Category button brings up a Delete Confirmation Modal that allows the user to confirm or cancel. Confirmation should cause the Category to be deleted from the database.
+
+**Issue:** Clicking on the Category Delete buttons does not trigger the appearance of the delete confirmation modal. This means that no deletion takes place - the Category remains in the database and visible on the site.
+
+**Workaround:** Full delete ability for Categoriy remains available through the Admin Panel, so full CRUD ability is still available for Categories.
+
+### Delete Media button on the gallery page (visible when in Curator Mode) does not work ###
+
+When in "Curator Mode" (when page is viewed by an authenticated user) a "Delete Media" button is visible.
+
+![Delete Media Button](documentation/delete-media-button.png)
+
+**Intended behaviour** is that clicking on the Delete Media button brings up a Delete Confirmation Modal that allows the user to confirm or cancel. Confirmation should cause the Media to be deleted from the database.
+
+**Issue:** Clicking on the Media Delete buttons does not trigger the appearance of the delete confirmation modal. This means that no deletion takes place - the Media remains in the database and visible on the site.
+
+**Workaround:** Full delete ability for Media remains available through the Admin Panel, so full CRUD ability is still available for Media.
 
 # Use of AI #
 
