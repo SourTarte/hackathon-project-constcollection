@@ -61,19 +61,38 @@ Development follows the principle of Agile development. The project KanBan board
 
 ## Colour ##
 
+All colours WCAG AAA 
 
 ## Fonts ##
 
 
 # Features #
 
-    ## Admin  ##
+Admin panel to add, edit or delete Media, Art Categories, Exhibitions, or About sections.
 
-    ## Navbar ##
+There is no functionality to create register a user so this is only avaliable to the artist/curator who is given a log in. 
 
-    ## Footer ##
+![Admin Panel](documentation/Admin-panel.png)
 
-    ## etc ##
+A navigation bar accessible through a toggle on the right, so as to not ditract from the art:
+
+![Admin Panel](documentation/Navigation.png.png)
+
+Welcome page:
+
+![Welcome](documentation/Welcome.png)
+
+Gallery to display all art pieces:
+
+![Gallery](documentation/Gallery1.png)
+
+About the artist:
+
+![About](documentation/About.png)
+
+Exhibitions:
+
+![Exhibitions](documentation/Exhibitions.png)
 
 
 # Technologies Used #
