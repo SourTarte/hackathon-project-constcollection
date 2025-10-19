@@ -10,10 +10,6 @@ A Django Hackathon project.
 
 Constcollection is a student Hackathon project who's premise is to create a responsive, accessible website for the artist Cecilia Kristoffersson.
 
-
-<images>
-
-
 # Table of Contents
 
 - [User Experience and Design](#user-experience-and-design)
@@ -67,16 +63,24 @@ The ERD needed no reference to the User model none of the objects were linked to
 
 Mobile:
 
-![Mobile Wireframes](documentation/artistwireframesmobile.webp.png)
+![Mobile Wireframes](documentation/artistwireframesmobile.webp)
+
+Desktop:
 
 ![Desktop Wireframes](documentation/artist_wireframes.webp)
 
 
 ## Colour ##
 
+The blue (#2f4bbd) for the header/footer was taken from Cecilia Kristoffersson's artwork "Blue". A lighter blue gradient compliments on the background.
+
+![Colour palette](documentation/colour-palette.webp)
 
 ## Fonts ##
 
+For the main header and the footer, the site uses a font-family of 'Chicle' from Google Fonts, with a fallback of 'cursive'.
+
+For h1 and h2 headers, the site uses a font-family of 'Georgia', falling back to serif.
 
 # Features #
 
@@ -188,10 +192,16 @@ All colour contrast meets WCAG AAA
 
 ## Code Validation ##
 
+
+
+![alt text](documentation/HTML-Validation.png)
+
+
+
 ## Lighthouse testing ##
-## Desktop ##
+### Desktop ###
 ![lighthouse-desktop](documentation/lighthouse-desktop.png)
-## Mobile ##
+### Mobile ###
 ![lighthouse-mobile](documentation/lighthouse-mobile.png)
 
 # Bugs #
