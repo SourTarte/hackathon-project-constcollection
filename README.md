@@ -8,7 +8,7 @@ A Django Hackathon project.
 
 [Link to project KanBan](https://github.com/users/SourTarte/projects/7)
 
-Constcollection is a student Hackathon project who's premise is to create a response, accessible website for the artist Cecilia Kristoffersson.
+Constcollection is a student Hackathon project who's premise is to create a responsive, accessible website for the artist Cecilia Kristoffersson.
 
 
 <images>
