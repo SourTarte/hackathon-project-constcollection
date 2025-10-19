@@ -22,7 +22,6 @@ class Media(models.Model):
     )
     created_on = models.DateTimeField(auto_now_add=True)
 
-    # NEW: optional Category FK (nullable for migration)
     category = models.ForeignKey(
         'Category',
         on_delete=models.SET_NULL,

@@ -53,6 +53,15 @@ Development follows the principle of Agile development. The project KanBan board
 
 ## Entity Relationship Diagram (ERD) ##
 
+![ERD](documentation/ERD.png)
+
+Here we have a Media model, which holds any images or videos the artist wants to display on the site. For the MVP we focused on displaying images foremost, but wanted to have the capability of storing videos later. The Media model had a clean method that only allowed either a video or an image, but not both and not neither. This is so one Media object only references one piece of media. 
+
+The Category model stores information about the 'types' of art the artist paints. She had several different categories with explanations of this, stored in the information field. One category could be linked to many pieces of media.
+
+The AboutSection model stores information on exhibitions, the artist's biography, and any press information - essentially information that is not directly linked to pieces of art. The AboutSection has a many to many relationship with media, so that for example, a section on an exhibition can inlude art pieces, photos, or videos of the event. 
+
+The ERD needed no reference to the User model none of the objects were linked to a user. We only have one or two users - the artist or curator who wants to update the site.
 
 ## Wireframes ##
 
@@ -73,7 +82,7 @@ Mobile:
 
 Admin panel to add, edit or delete Media, Art Categories, Exhibitions, or About sections.
 
-There is no functionality to create register a user so this is only avaliable to the artist/curator who is given a log in. 
+There is no functionality to register a user so this is only avaliable to the artist/curator who is given a log in. 
 
 ![Admin Panel](documentation/Admin-panel.png)
 
