@@ -8,11 +8,7 @@ A Django Hackathon project.
 
 [Link to project KanBan](https://github.com/users/SourTarte/projects/7)
 
-Constcollection is a student Hackathon project who's premise is to create a response, accessible website for the artist Cecilia Kristoffersson.
-
-
-<images>
-
+Constcollection is a student Hackathon project whose premise is to create a responsive, accessible website for the artist Cecilia Kristoffersson.
 
 # Table of Contents
 
@@ -33,6 +29,7 @@ Constcollection is a student Hackathon project who's premise is to create a resp
     - [Code Validation](#code-validation)
     - [Lighthouse Testing](#lighthouse-testing)
 - [Bugs](#bugs)
+- [Future Features](#future-features)
 - [Use of AI](#use-of-ai)
 - [References and Credits](#references-and-credits)
 
@@ -61,22 +58,32 @@ The Category model stores information about the 'types' of art the artist paints
 
 The AboutSection model stores information on exhibitions, the artist's biography, and any press information - essentially information that is not directly linked to pieces of art. The AboutSection has a many to many relationship with media, so that for example, a section on an exhibition can inlude art pieces, photos, or videos of the event. 
 
-The ERD needed no reference to the User model none of the objects were linked to a user. We only have one or two users - the artist or curator who wants to update the site.
+The ERD needed no reference to the User model - none of the objects were linked to a user. We only have one or two users - the artist or curator who wants to update the site.
 
 ## Wireframes ##
 
 Mobile:
 
-![Mobile Wireframes](documentation/artistwireframesmobile.webp.png)
+![Mobile Wireframes](documentation/artistwireframesmobile.webp)
+
+Desktop:
 
 ![Desktop Wireframes](documentation/artist_wireframes.webp)
 
 
 ## Colour ##
 
+The blue (#2f4bbd) for the header/footer was taken from Cecilia Kristoffersson's artwork "Blue". A lighter blue gradient compliments on the background.
+
+The image below was taken using the Coolors.co website, though the site was not used in the process of selecting these colours.
+
+![Colour palette](documentation/colour-palette.webp)
 
 ## Fonts ##
 
+For the main header and the footer, the site uses a font-family of 'Chicle' from Google Fonts, with a fallback of 'cursive'.
+
+For h1 and h2 headers, the site uses a font-family of 'Georgia', falling back to serif.
 
 # Features #
 
@@ -84,15 +91,15 @@ Admin panel to add, edit or delete Media, Art Categories, Exhibitions, or About 
 
 This has tabs for each form, and the forms are scrollable with buttons to edit or delete existing objects.
 
-There is no functionality to register a user so this is only avaliable to the artist/curator who is given a log in. 
+There is no functionality to register a user so this is only available to the artist/curator who is given a log in. 
 
 ![Admin Panel Add](documentation/Admin-panel1.png)
 
 ![Admin Panel Edit/Delete](documentation/Admin-panel2.png)
 
-A navigation bar accessible through a toggle on the right, so as to not ditract from the art:
+A navigation bar accessible through a toggle on the right, so as to not distract from the art:
 
-![Admin Panel](documentation/Navigation.png.png)
+![Admin Panel](documentation/Navigation.png)
 
 Welcome page:
 
@@ -186,15 +193,106 @@ All colour contrast meets WCAG AAA
 
 ## Manual Testing against User Stories ##
 
+Significant manual testing was conducted. A comprehensive testing table has not been produced at the time of writing.
+
 ## Code Validation ##
 
+All pages passed without note, with the exception of the Admin Panel which had 1 "Info" note.
+
+Home page:
+
+![HTML Validation Home page](documentation/html-validation-home.webp)
+
+Gallery Page:
+
+![HTML Validation Gallery Page](documentation/html-validation-gallery.webp)
+
+About Page:
+
+![HTML Validation About Page](documentation/html-validation-about.webp)
+
+Exhibitions Page:
+
+![HTML Validation Exhibitions Page](documentation/html-validation-exhibitions.webp)
+
+Admin Panel:
+
+The Admin Panel had a single "Info" note, about a trailing slash on a single void element.
+
+The code it shows is not present on the VScode project, and appears to be in Django generated code that is then served from the deployed project.
+
+It does not impact on the operation of the web page.
+
+![HTML Validation Admin Panel](documentation/html-validation-adminpanel.webp)
+
 ## Lighthouse testing ##
-## Desktop ##
+### Desktop ###
 ![lighthouse-desktop](documentation/lighthouse-desktop.png)
-## Mobile ##
+### Mobile ###
 ![lighthouse-mobile](documentation/lighthouse-mobile.png)
 
 # Bugs #
+
+### Delete Category button on the gallery page (visible when in Curator Mode) does not work ###
+
+When in "Curator Mode" (when page is viewed by an authenticated user) a "Delete Category" button is visible.
+
+![Delete Category Button](documentation/delete-category-button.png)
+
+**Intended behaviour** is that clicking on the Delete Category button brings up a Delete Confirmation Modal that allows the user to confirm or cancel. Confirmation should cause the Category to be deleted from the database.
+
+**Issue:** Clicking on the Category Delete buttons does not trigger the appearance of the delete confirmation modal. This means that no deletion takes place - the Category remains in the database and visible on the site.
+
+**Workaround:** Full delete ability for Category remains available through the Admin Panel, so full CRUD ability is still available for Categories.
+
+### Delete Media button on the gallery page (visible when in Curator Mode) does not work ###
+
+When in "Curator Mode" (when page is viewed by an authenticated user) a "Delete Media" button is visible.
+
+![Delete Media Button](documentation/delete-media-button.png)
+
+**Intended behaviour** is that clicking on the Delete Media button brings up a Delete Confirmation Modal that allows the user to confirm or cancel. Confirmation should cause the Media to be deleted from the database.
+
+**Issue:** Clicking on the Media Delete buttons does not trigger the appearance of the delete confirmation modal. This means that no deletion takes place - the Media remains in the database and visible on the site.
+
+**Workaround:** Full delete ability for Media remains available through the Admin Panel, so full CRUD ability is still available for Media.
+
+### Tab selection changing in Admin Panel when loading Category or Media for editing ###
+
+Admin Panel is split into three tabs: 
+
+![Admin Panel tabs](documentation/bug-adminpanel-tabs.webp)
+
+**Intended behaviour**
+
+When performing edits to a Category in the the Categories tab or to Media in the the Media tab, after selecting a Category or Media to edit, the page should stay on that tab.
+
+**Issue:** When the "Edit" button is pressed the correct Category or Media is loaded, but the tab jumps to the "About" tab.
+
+**Workaround:** After selecting a Category or Media to edit, simply select the correct tab again. The procedure contiues as intended after this.
+
+### Duplicate Django messages showing in admin panel ###
+
+Django messages are displayed at the top of the page, just beneath the header.
+
+![Admin Panel Django Messages](documentation/bug-adminpanel-messages.webp)
+
+**Intended behaviour**
+
+A single instance of the Django message is displayed at the top of the page.
+
+**Issue:** Two instances of the Django message are displayed at the top of the page, one below the other.
+
+**Workaround:** Close the duplicated message.
+
+
+# Future Features #
+
+### Add delete confirmation modals to Admin Panel
+
+Currently, all delete operations on the admin panel complete instantly upon the user clicking / pressing delete. There is no warning or confirmation dialog box interrupting the process and giving the user a chance to back out of the delete operation.
+
+This should be the next feature to be implemented, as a delete confirmation is best practice for operation involving Delete functionality.
 
 # Use of AI #
 
@@ -203,7 +301,7 @@ AI in the form of Copilot and GitHub Copilot has been used throughout the develo
 - Generation and refinement of User Stories for the project KanBan
 - Searching for answers in documentation
 - Code generation, including code using Bootstrap and Django Template Language
-- Accellerated debugging of code
+- Accelerated debugging of code
 
 
 # References and Credits #
@@ -211,4 +309,4 @@ AI in the form of Copilot and GitHub Copilot has been used throughout the develo
 
 This project is inspired in large part from the "I Think Therefore I Blog" project that is a key part of Code Institutes full-stack web development course.
 
-Copilot uses the collective knowledge of hundreds of millions, and has helped created code for this project. 
+Copilot uses the collective knowledge of hundreds of millions of people, and has helped create code for this project. 
