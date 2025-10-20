@@ -8,7 +8,7 @@ A Django Hackathon project.
 
 [Link to project KanBan](https://github.com/users/SourTarte/projects/7)
 
-Constcollection is a student Hackathon project who's premise is to create a responsive, accessible website for the artist Cecilia Kristoffersson.
+Constcollection is a student Hackathon project whose premise is to create a responsive, accessible website for the artist Cecilia Kristoffersson.
 
 # Table of Contents
 
@@ -29,6 +29,7 @@ Constcollection is a student Hackathon project who's premise is to create a resp
     - [Code Validation](#code-validation)
     - [Lighthouse Testing](#lighthouse-testing)
 - [Bugs](#bugs)
+- [Future Features](#future-features)
 - [Use of AI](#use-of-ai)
 - [References and Credits](#references-and-credits)
 
@@ -57,7 +58,7 @@ The Category model stores information about the 'types' of art the artist paints
 
 The AboutSection model stores information on exhibitions, the artist's biography, and any press information - essentially information that is not directly linked to pieces of art. The AboutSection has a many to many relationship with media, so that for example, a section on an exhibition can inlude art pieces, photos, or videos of the event. 
 
-The ERD needed no reference to the User model none of the objects were linked to a user. We only have one or two users - the artist or curator who wants to update the site.
+The ERD needed no reference to the User model - none of the objects were linked to a user. We only have one or two users - the artist or curator who wants to update the site.
 
 ## Wireframes ##
 
@@ -90,15 +91,15 @@ Admin panel to add, edit or delete Media, Art Categories, Exhibitions, or About 
 
 This has tabs for each form, and the forms are scrollable with buttons to edit or delete existing objects.
 
-There is no functionality to register a user so this is only avaliable to the artist/curator who is given a log in. 
+There is no functionality to register a user so this is only available to the artist/curator who is given a log in. 
 
 ![Admin Panel Add](documentation/Admin-panel1.png)
 
 ![Admin Panel Edit/Delete](documentation/Admin-panel2.png)
 
-A navigation bar accessible through a toggle on the right, so as to not ditract from the art:
+A navigation bar accessible through a toggle on the right, so as to not distract from the art:
 
-![Admin Panel](documentation/Navigation.png.png)
+![Admin Panel](documentation/Navigation.png)
 
 Welcome page:
 
@@ -192,6 +193,8 @@ All colour contrast meets WCAG AAA
 
 ## Manual Testing against User Stories ##
 
+Significant manual testing was conducted. A comprehensive testing table has not been produced at the time of writing.
+
 ## Code Validation ##
 
 All pages passed without note, with the exception of the Admin Panel which had 1 "Info" note.
@@ -240,7 +243,7 @@ When in "Curator Mode" (when page is viewed by an authenticated user) a "Delete 
 
 **Issue:** Clicking on the Category Delete buttons does not trigger the appearance of the delete confirmation modal. This means that no deletion takes place - the Category remains in the database and visible on the site.
 
-**Workaround:** Full delete ability for Categoriy remains available through the Admin Panel, so full CRUD ability is still available for Categories.
+**Workaround:** Full delete ability for Category remains available through the Admin Panel, so full CRUD ability is still available for Categories.
 
 ### Delete Media button on the gallery page (visible when in Curator Mode) does not work ###
 
@@ -254,6 +257,43 @@ When in "Curator Mode" (when page is viewed by an authenticated user) a "Delete 
 
 **Workaround:** Full delete ability for Media remains available through the Admin Panel, so full CRUD ability is still available for Media.
 
+### Tab selection changing in Admin Panel when loading Category or Media for editing ###
+
+Admin Panel is split into three tabs: 
+
+![Admin Panel tabs](documentation/bug-adminpanel-tabs.webp)
+
+**Intended behaviour**
+
+When performing edits to a Category in the the Categories tab or to Media in the the Media tab, after selecting a Category or Media to edit, the page should stay on that tab.
+
+**Issue:** When the "Edit" button is pressed the correct Category or Media is loaded, but the tab jumps to the "About" tab.
+
+**Workaround:** After selecting a Category or Media to edit, simply select the correct tab again. The procedure contiues as intended after this.
+
+### Duplicate Django messages showing in admin panel ###
+
+Django messages are displayed at the top of the page, just beneath the header.
+
+![Admin Panel Django Messages](documentation/bug-adminpanel-messages.webp)
+
+**Intended behaviour**
+
+A single instance of the Django message is displayed at the top of the page.
+
+**Issue:** Two instances of the Django message are displayed at the top of the page, one below the other.
+
+**Workaround:** Close the duplicated message.
+
+
+# Future Features #
+
+### Add delete confirmation modals to Admin Panel
+
+Currently, all delete operations on the admin panel complete instantly upon the user clicking / pressing delete. There is no warning or confirmation dialog box interrupting the process and giving the user a chance to back out of the delete operation.
+
+This should be the next feature to be implemented, as a delete confirmation is best practice for operation involving Delete functionality.
+
 # Use of AI #
 
 AI in the form of Copilot and GitHub Copilot has been used throughout the development of this project. Uses have primarily been:
@@ -261,7 +301,7 @@ AI in the form of Copilot and GitHub Copilot has been used throughout the develo
 - Generation and refinement of User Stories for the project KanBan
 - Searching for answers in documentation
 - Code generation, including code using Bootstrap and Django Template Language
-- Accellerated debugging of code
+- Accelerated debugging of code
 
 
 # References and Credits #
@@ -269,4 +309,4 @@ AI in the form of Copilot and GitHub Copilot has been used throughout the develo
 
 This project is inspired in large part from the "I Think Therefore I Blog" project that is a key part of Code Institutes full-stack web development course.
 
-Copilot uses the collective knowledge of hundreds of millions, and has helped created code for this project. 
+Copilot uses the collective knowledge of hundreds of millions of people, and has helped create code for this project. 
