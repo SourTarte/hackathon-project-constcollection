@@ -99,7 +99,7 @@ There is no functionality to register a user so this is only available to the ar
 
 A navigation bar accessible through a toggle on the right, so as to not distract from the art:
 
-![Admin Panel](documentation/Navigation.png.png)
+![Admin Panel](documentation/Navigation.png)
 
 Welcome page:
 
@@ -192,6 +192,8 @@ Click 'Deploy Branch'.
 All colour contrast meets WCAG AAA 
 
 ## Manual Testing against User Stories ##
+
+Significant manual testing was conducted. A comprehensive testing table has not been produced at the time of writing.
 
 ## Code Validation ##
 
