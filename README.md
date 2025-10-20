@@ -74,6 +74,8 @@ Desktop:
 
 The blue (#2f4bbd) for the header/footer was taken from Cecilia Kristoffersson's artwork "Blue". A lighter blue gradient compliments on the background.
 
+The image below was taken using the Coolors.co website, though the site was not used in the process of selecting these colours.
+
 ![Colour palette](documentation/colour-palette.webp)
 
 ## Fonts ##
@@ -192,11 +194,33 @@ All colour contrast meets WCAG AAA
 
 ## Code Validation ##
 
+All pages passed without note, with the exception of the Admin Panel which had 1 "Info" note.
 
+Home page:
 
-![alt text](documentation/HTML-Validation.png)
+![HTML Validation Home page](documentation/html-validation-home.webp)
 
+Gallery Page:
 
+![HTML Validation Gallery Page](documentation/html-validation-gallery.webp)
+
+About Page:
+
+![HTML Validation About Page](documentation/html-validation-about.webp)
+
+Exhibitions Page:
+
+![HTML Validation Exhibitions Page](documentation/html-validation-exhibitions.webp)
+
+Admin Panel:
+
+The Admin Panel had a single "Info" note, about a trailing slash on a single void element.
+
+The code it shows is not present on the VScode project, and appears to be in Django generated code that is then served from the deployed project.
+
+It does not impact on the operation of the web page.
+
+![HTML Validation Admin Panel](documentation/html-validation-adminpanel.webp)
 
 ## Lighthouse testing ##
 ### Desktop ###
